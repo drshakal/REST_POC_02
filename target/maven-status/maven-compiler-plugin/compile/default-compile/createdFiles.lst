@@ -1,0 +1,7 @@
+org\mycompany\CustomerProcessor\ProcessorClass.class
+org\mycompany\DetailsCustomer\CustomerRequest.class
+org\mycompany\DetailsCustomer\CustomerDetails.class
+org\mycompany\DetailsCustomerService\GetCustomerService.class
+org\mycompany\CustomerRepository\CustomerRepository.class
+org\mycompany\DetailsCustomer\CustomerResponse.class
+org\mycompany\Application.class

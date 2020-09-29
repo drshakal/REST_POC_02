@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd         http://camel.apache.org/schema/spring       https://camel.apache.org/schema/spring/camel-spring.xsd">
+    <bean
+        class="org.mycompany.DetailsCustomerService.GetCustomerService" id="customerDetails"/>
+    <camelContext id="camel" typeConverterStatisticsEnabled="true" xmlns="http://camel.apache.org/schema/spring">
+        <dataFormats>
+            <xmljson id="xmljson"/>
+        </dataFormats>
+        <restConfiguration bindingMode="json" component="jetty"
+            host="localhost" port="9095"/>
+        <rest id="rest" path="/api/customer">
+            <get id="rest-id"
+                outType="org.mycompany.DetailsCustomer.CustomerResponse"
+                type="org.mycompany.DetailsCustomer.CustomerRequest" uri="/hello/{id}">
+                <to uri="direct:getCustomers"/>
+            </get>
+        </rest>
+        <route id="getCustomers">
+            <from id="_form1" uri="direct:getCustomers"/>
+            <to id="_to1" uri="customerDetails"/>
+        </route>
+    </camelContext>
+</beans>
