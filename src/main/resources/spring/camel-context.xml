@@ -12,12 +12,12 @@
         <rest id="rest" path="/api/customer">
             <get id="rest-id"
                 outType="org.mycompany.DetailsCustomer.CustomerResponse"
-                type="org.mycompany.DetailsCustomer.CustomerRequest" uri="/hello/{id}">
-                <to uri="direct:getCustomers"/>
+                type="org.mycompany.DetailsCustomer.CustomerRequest" uri="/hello">
+                <to uri="direct:getCustomer"/>
             </get>
         </rest>
-        <route id="getCustomers">
-            <from id="_form1" uri="direct:getCustomers"/>
+        <route id="getCustomer">
+            <from id="_form1" uri="direct:getCustomer"/>
             <to id="_to1" uri="customerDetails"/>
         </route>
     </camelContext>
